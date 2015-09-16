@@ -75,7 +75,7 @@ TEST(Undo, Basics)
 TEST(Undo, Tree)
 {
   // 1 --- 2
-  //  \
+  //  \       
   //   ------ 3 --- 4
   int model = 0;
   Cmd cmd1(model, 1, 0);

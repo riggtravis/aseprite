@@ -138,6 +138,8 @@ bool IcoFormat::onLoad(FileOp* fop)
   // Go to the entry start in the file
   fseek(f, entry.image_offset, SEEK_SET);
 
+  // It doesn't look like any of this code is used.
+  /*
   // Read BITMAPINFOHEADER
   BITMAPINFOHEADER bmpHeader;
   bmpHeader.size                 = fgetl(f);
@@ -151,6 +153,7 @@ bool IcoFormat::onLoad(FileOp* fop)
   bmpHeader.yPelsPerMeter        = fgetl(f); // unused for ico
   bmpHeader.clrUsed              = fgetl(f); // unused for ico
   bmpHeader.clrImportant         = fgetl(f); // unused for ico
+  */
 
   // Read the palette
   if (entry.bpp <= 8) {

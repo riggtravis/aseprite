@@ -200,7 +200,11 @@ void ColorButton::onPaint(PaintEvent& ev)
         current_editor->sprite()->pixelFormat() == IMAGE_INDEXED) {
       m_dependOnLayer = true;
 
-      if (current_editor->sprite()->transparentColor() == color.getIndex() &&
+      // This if statement is causing problems but I don't know how to fix it.
+      // Actually I do.
+      // I need to use typecasting.
+      if (static_cast<long int>(current_editor->sprite()->transparentColor()) ==
+            static_cast<long int>(color.getIndex()) &&
           current_editor->layer() &&
           !current_editor->layer()->isBackground()) {
         color = app::Color::fromMask();

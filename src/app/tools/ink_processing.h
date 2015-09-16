@@ -244,6 +244,9 @@ public:
 
   void processPixel(int x, int y) {
     color_t c = *m_srcAddress;
+
+    // This if statement is causing a couple of problems, but I'm not convinced
+    //  I can fix it without digging really deep into this code base.
     if (c == m_maskIndex)
       c = m_palette->getEntry(c) & rgba_rgb_mask;  // Alpha = 0
     else

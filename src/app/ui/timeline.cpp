@@ -411,7 +411,9 @@ bool Timeline::onProcessMessage(Message* msg)
           // range bounds.
           if (m_range.type() == Range::kCels) {
             gfx::Point pt = mouseMsg->position();
-            m_clk = hitTestCel(mouseMsg->position() - getBounds().getOrigin());
+
+            // I think we can use our variable pt here.
+            m_clk = hitTestCel(pt - getBounds().getOrigin());
 
             if (m_clk.layer < m_range.layerBegin())
               m_clk.layer = m_range.layerBegin();

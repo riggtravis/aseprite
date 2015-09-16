@@ -538,6 +538,8 @@ private:
     for (int y=0; y<frameBounds.h; ++y) {
       for (int x=0; x<frameBounds.w; ++x) {
         color_t i = get_pixel_fast<IndexedTraits>(frameImage, x, y);
+
+        // More color_t issues.
         if (i == m_localTransparentIndex)
           continue;
 
@@ -557,6 +559,9 @@ private:
     for (int y=0; y<frameBounds.h; ++y) {
       for (int x=0; x<frameBounds.w; ++x) {
         color_t i = get_pixel_fast<IndexedTraits>(frameImage, x, y);
+
+        // This is causing some trouble, but color_t would require some digging
+        // Ignore for now
         if (i == m_localTransparentIndex)
           continue;
 

@@ -354,6 +354,7 @@ void reverse_frames(Document* doc, const DocumentRange& range)
   int layerBegin, layerEnd;
   bool moveFrames = false;
 
+  // I think adding a default case to this switch statement might be a good idea
   switch (range.type()) {
     case DocumentRange::kCels:
       frameBegin = range.frameBegin();
@@ -386,6 +387,8 @@ void reverse_frames(Document* doc, const DocumentRange& range)
     sprite->getLayersList(layers);
 
     for (int layerIdx = layerBegin; layerIdx != layerEnd; ++layerIdx) {
+      // It's not gaurunteed that frameBegin is set.
+      // I think adding a default case to the switch statement would help.
       for (frame_t frame = frameBegin,
              frameRev = frameEnd;
            frame != (frameBegin+frameEnd)/2+1;
